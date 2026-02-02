@@ -4,15 +4,18 @@
   "description": "A simple Electrobun app showcasing core features",
   "scripts": {
     "dev": "electrobun dev",
-    "build": "electrobun build",
+    "build:css": "npx tailwindcss -i ./src/mainview/index.source.css -o ./src/mainview/index.css",
+    "build": "bun run build:css && electrobun build",
     "start": "bun run build && bun run dev"
   },
   "dependencies": {
     "electrobun": "latest",
+    "lucide-react": "^0.563.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4"
   },
   "devDependencies": {
+    "@tailwindcss/cli": "^4.1.18",
     "@types/bun": "latest",
     "@types/react": "^19.2.10",
     "@types/react-dom": "^19.2.3",

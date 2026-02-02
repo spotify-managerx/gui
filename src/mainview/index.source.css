@@ -1,0 +1,96 @@
+@import "tailwindcss";
+
+@theme {
+  --color-spotify-green: #1db954;
+  --color-spotify-dark: #191414;
+  --color-spotify-light-green: #1ed760;
+}
+
+@layer base {
+  * {
+    /* Disable text selection everywhere */
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    
+    /* Remove default focus outlines */
+    outline: none;
+  }
+
+  body {
+    background: #191414;
+    min-height: 100vh;
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  }
+
+  /* Remove default button/input focus rings */
+  button:focus,
+  input:focus,
+  select:focus,
+  textarea:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+}
+
+@layer utilities {
+  /* Premium gradient animation */
+  @keyframes gradient-pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.7;
+    }
+  }
+
+  .animate-gradient-pulse {
+    animation: gradient-pulse 3s ease-in-out infinite;
+  }
+
+  /* Smooth ease for premium feel */
+  .transition-premium {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+.footer p {
+    margin: 8px 0;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .welcome-section {
+        background: #1f2937;
+        color: #f3f4f6;
+    }
+    
+    h2 {
+        color: #60a5fa;
+    }
+    
+    code {
+        background: #374151;
+        color: #d1d5db;
+    }
+}
