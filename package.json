@@ -9,6 +9,7 @@
     "start": "bun run build && bun run dev"
   },
   "dependencies": {
+    "discord-rpc": "^4.0.1",
     "electrobun": "latest",
     "lucide-react": "^0.563.0",
     "react": "^19.2.4",
