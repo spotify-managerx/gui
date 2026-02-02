@@ -35,8 +35,8 @@ src/
 │   └── index.ts      # Main process - creates and manages windows
 └── mainview/
     ├── index.html    # Your app's UI
-    ├── index.css     # Styles
-    └── index.ts      # View logic
+    ├── index.css     # Tailwind CSS styles
+    └── index.tsx     # React app logic
 ```
 
 ## Development
