@@ -1,13 +1,14 @@
-# Electrobun Hello World
+# spotify-managerx GUI
 
-A simple Electrobun app to get you started with the framework.
+An improved version of Spicetify built with Electrobun and React.
 
-## What You'll See
+## About
 
-This hello world app demonstrates:
-- **Native Window**: A cross-platform desktop window
-- **Web-based UI**: Modern HTML, CSS, and JavaScript interface
-- **Simple Architecture**: Clean separation between Bun process and UI
+This is the frontend GUI for spotify-managerx. The backend is currently in development.
+
+- **Ultra-fast**: Built with Electrobun for native performance
+- **Modern UI**: React-based interface
+- **Cross-platform**: Windows, macOS, and Linux support
 
 ## Getting Started
 
@@ -38,20 +39,8 @@ src/
     └── index.ts      # View logic
 ```
 
-## Next Steps
+## Development
 
-Ready to build something more complex? Check out:
-
-- **[Documentation](https://docs.electrobun.dev)** - Learn about all Electrobun features
-- **[Examples](https://github.com/blackboardsh/electrobun/tree/main/playground)** - See advanced features like RPC, menus, and system tray
-- **[GitHub](https://github.com/blackboardsh/electrobun)** - Star the repo and join the community
-
-### Add More Features
-
-Want to extend this app? Try adding:
-- RPC communication between Bun and webview
-- Native menus and system tray
-- File dialogs and system integration
-- Multiple windows and views
+This is a work in progress. The backend and full feature set are still being developed.
 
 Happy building! 🚀

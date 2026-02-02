@@ -7,7 +7,7 @@ export default {
     build: {
         views: {
             mainview: {
-                entrypoint: "src/mainview/index.ts",
+                entrypoint: "src/mainview/index.tsx",
                 external: [],
             },
         },
