@@ -1,22 +1,22 @@
-import React, { useState } from 'react';
-import { createRoot } from 'react-dom/client';
-import './index.css';
-import Sidebar from './components/Sidebar';
-import TopBar from './components/TopBar';
-import ThemesTab from './components/ThemesTab';
-import BackupTab from './components/BackupTab';
-import SettingsTab from './components/SettingsTab';
+import React, { useState } from "react";
+import { createRoot } from "react-dom/client";
+import "./index.css";
+import Sidebar from "./components/Sidebar";
+import TopBar from "./components/TopBar";
+import ThemesTab from "./components/ThemesTab";
+import BackupTab from "./components/BackupTab";
+import SettingsTab from "./components/SettingsTab";
 
 const App = () => {
-  const [activeTab, setActiveTab] = useState('themes');
+  const [activeTab, setActiveTab] = useState("themes");
 
   const renderContent = () => {
     switch (activeTab) {
-      case 'themes':
+      case "themes":
         return <ThemesTab />;
-      case 'backup':
+      case "backup":
         return <BackupTab />;
-      case 'settings':
+      case "settings":
         return <SettingsTab />;
       default:
         return <ThemesTab />;
@@ -29,15 +29,13 @@ const App = () => {
 
       <div className="flex-1 flex flex-col overflow-hidden">
         <TopBar />
-        <main className="flex-1 overflow-y-auto">
-          {renderContent()}
-        </main>
+        <main className="flex-1 overflow-y-auto">{renderContent()}</main>
       </div>
     </div>
   );
 };
 
-const root = document.getElementById('root');
+const root = document.getElementById("root");
 if (root) {
   createRoot(root).render(<App />);
 }
