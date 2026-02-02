@@ -9,8 +9,7 @@ const mainWindow = new BrowserWindow({
     height: 800,
     x: 200,
     y: 200,
-  },
-  devTools: false, // Disable devtools
+  }
 });
 
 // Prevent F12 and other devtools shortcuts

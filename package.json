@@ -12,7 +12,8 @@
     "electrobun": "latest",
     "lucide-react": "^0.563.0",
     "react": "^19.2.4",
-    "react-dom": "^19.2.4"
+    "react-dom": "^19.2.4",
+    "react-router-dom": "^7.13.0"
   },
   "devDependencies": {
     "@tailwindcss/cli": "^4.1.18",
