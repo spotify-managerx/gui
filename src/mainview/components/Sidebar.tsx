@@ -1,16 +1,15 @@
 import React from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Palette, Save, Settings, RefreshCw } from 'lucide-react';
 
-interface SidebarProps {
-  activeTab: string;
-  setActiveTab: (tab: string) => void;
-}
+const Sidebar: React.FC = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
 
-const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab }) => {
   const navItems = [
-    { id: 'themes', icon: Palette, label: 'Themes' },
-    { id: 'backup', icon: Save, label: 'Backup & Restore' },
-    { id: 'settings', icon: Settings, label: 'Settings' },
+    { id: 'themes', icon: Palette, label: 'Themes', path: '/themes' },
+    { id: 'backup', icon: Save, label: 'Backup & Restore', path: '/backup' },
+    { id: 'settings', icon: Settings, label: 'Settings', path: '/settings' },
   ];
 
   return (
@@ -24,12 +23,12 @@ const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab }) => {
       <nav className="flex-1 flex flex-col gap-2">
         {navItems.map((item) => {
           const Icon = item.icon;
-          const isActive = activeTab === item.id;
+          const isActive = location.pathname === item.path;
 
           return (
             <button
               key={item.id}
-              onClick={() => setActiveTab(item.id)}
+              onClick={() => navigate(item.path)}
               className={`w-10 h-10 flex items-center justify-center rounded-lg transition-all duration-200 ${
                 isActive
                   ? 'bg-spotify-green text-black'
