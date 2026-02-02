@@ -28,6 +28,10 @@ export default class SpotifyPatcher {
     });
   }
 
+  installWrapper(): void {
+    
+  }
+
   getSpotifyPaths(): {prefs: string; exec: string} {
     return {
       prefs: path.join(process.env.APPDATA!, "Spotify", "prefs"),
