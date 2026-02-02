@@ -1,18 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
+import Sidebar from './components/Sidebar';
+import TopBar from './components/TopBar';
+import ThemesTab from './components/ThemesTab';
+import BackupTab from './components/BackupTab';
+import SettingsTab from './components/SettingsTab';
 
 const App = () => {
+  const [activeTab, setActiveTab] = useState('themes');
+
+  const renderContent = () => {
+    switch (activeTab) {
+      case 'themes':
+        return <ThemesTab />;
+      case 'backup':
+        return <BackupTab />;
+      case 'settings':
+        return <SettingsTab />;
+      default:
+        return <ThemesTab />;
+    }
+  };
+
   return (
-    <div className="max-w-6xl mx-auto px-5 py-10">
-      <h1 className="text-white text-5xl text-center mb-2 drop-shadow-lg">
-        spotify-managerx
-      </h1>
-      <p className="text-white/90 text-xl text-center mb-10 drop-shadow">
-        Frontend GUI
-      </p>
-      <div className="bg-white/10 backdrop-blur-lg rounded-xl p-8 text-center shadow-2xl">
-        <p className="text-white text-lg">React + Tailwind ready. Backend coming soon.</p>
+    <div className="flex h-screen bg-black overflow-hidden select-none">
+      {/* Sidebar */}
+      <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />
+
+      {/* Main content */}
+      <div className="flex-1 flex flex-col overflow-hidden">
+        <TopBar />
+        <main className="flex-1 overflow-y-auto">
+          {renderContent()}
+        </main>
       </div>
     </div>
   );

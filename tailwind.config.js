@@ -4,7 +4,13 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        'spotify-green': '#1db954',
+        'spotify-dark': '#191414',
+        'spotify-light-green': '#1ed760',
+      },
+    },
   },
   plugins: [],
 }
