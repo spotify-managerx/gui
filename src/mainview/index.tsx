@@ -25,10 +25,8 @@ const App = () => {
 
   return (
     <div className="flex h-screen bg-black overflow-hidden select-none">
-      {/* Sidebar */}
       <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />
 
-      {/* Main content */}
       <div className="flex-1 flex flex-col overflow-hidden">
         <TopBar />
         <main className="flex-1 overflow-y-auto">
