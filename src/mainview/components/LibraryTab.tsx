@@ -1,14 +1,10 @@
 import React from 'react';
 import { FiDroplet, FiPackage, FiCheck, FiTrash2 } from 'react-icons/fi';
+import { mockThemes, mockExtensions } from '../../data/mockData';
 
 const LibraryTab: React.FC = () => {
-  const installedThemes = [
-    { id: 1, name: 'OLED Black', author: 'Modify', type: 'theme' as const },
-  ];
-
-  const installedExtensions = [
-    { id: 1, name: 'Lyrics Plus', author: 'Community', type: 'extension' as const },
-  ];
+  const installedThemes = mockThemes.filter(t => t.installed);
+  const installedExtensions = mockExtensions.filter(e => e.installed);
 
   const allInstalled = [...installedThemes, ...installedExtensions];
 

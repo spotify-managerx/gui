@@ -1,82 +1,14 @@
 import React, { useState } from 'react';
 import { FiSearch, FiCheck, FiDroplet, FiPackage, FiDownload, FiCode, FiGrid } from 'react-icons/fi';
+import { mockThemes, mockExtensions, mockSnippets } from '../../data/mockData';
 
 const PluginsTab: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'themes' | 'extensions' | 'snippets'>('themes');
   const [searchQuery, setSearchQuery] = useState('');
 
-  const themes = [
-    {
-      id: 1,
-      name: 'OLED Black',
-      author: 'Modify',
-      description: 'Pure black theme optimized for OLED displays',
-      downloads: '12.5k',
-      installed: true,
-    },
-    {
-      id: 2,
-      name: 'Nord Theme',
-      author: 'Arctic',
-      description: 'Arctic, north-bluish color palette',
-      downloads: '8.2k',
-      installed: false,
-    },
-    {
-      id: 3,
-      name: 'Dracula',
-      author: 'Community',
-      description: 'Dark theme with vibrant colors',
-      downloads: '15.1k',
-      installed: false,
-    },
-  ];
-
-  const extensions = [
-    {
-      id: 1,
-      name: 'Lyrics Plus',
-      author: 'Community',
-      description: 'Enhanced lyrics display with translations',
-      downloads: '25.3k',
-      installed: true,
-    },
-    {
-      id: 2,
-      name: 'EQ Enhancement',
-      author: 'AudioPro',
-      description: 'Advanced equalizer controls',
-      downloads: '18.7k',
-      installed: false,
-    },
-  ];
-
-  const snippets = [
-    {
-      id: 1,
-      name: 'Hide Podcasts',
-      author: 'Community',
-      description: 'Hides the podcast section from sidebar',
-      downloads: '8.3k',
-      enabled: true,
-    },
-    {
-      id: 2,
-      name: 'Compact Queue',
-      author: 'Community',
-      description: 'Makes queue more compact',
-      downloads: '5.7k',
-      enabled: false,
-    },
-    {
-      id: 3,
-      name: 'Rounded Covers',
-      author: 'Community',
-      description: 'Makes album covers rounded',
-      downloads: '12.1k',
-      enabled: false,
-    },
-  ];
+  const themes = mockThemes;
+  const extensions = mockExtensions;
+  const snippets = mockSnippets;
 
   const getActiveData = () => {
     switch (activeTab) {

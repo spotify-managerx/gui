@@ -1,44 +1,10 @@
 import React from 'react';
 import { FiGrid, FiExternalLink, FiSettings, FiTrash2 } from 'react-icons/fi';
+import { mockApps } from '../../data/mockData';
 
 const AppsTab: React.FC = () => {
-  const installedApps = [
-    {
-      id: 1,
-      name: 'Lyrics Plus',
-      author: 'Community',
-      description: 'Enhanced lyrics viewer with translations and sync',
-      version: 'v2.1.0',
-      installed: true,
-    },
-    {
-      id: 2,
-      name: 'Stats',
-      author: 'Community',
-      description: 'View your detailed listening statistics',
-      version: 'v1.5.2',
-      installed: true,
-    },
-  ];
-
-  const availableApps = [
-    {
-      id: 3,
-      name: 'Marketplace',
-      author: 'Spicetify',
-      description: 'Browse and install themes, extensions, and apps',
-      downloads: '50.2k',
-      installed: false,
-    },
-    {
-      id: 4,
-      name: 'Reddit',
-      author: 'Community',
-      description: 'Browse music subreddits within Spotify',
-      downloads: '12.8k',
-      installed: false,
-    },
-  ];
+  const installedApps = mockApps.filter((app: any) => app.installed !== false).slice(0, 2);
+  const availableApps = mockApps;
 
   return (
     <div className="h-full bg-spotify-black overflow-y-auto">
