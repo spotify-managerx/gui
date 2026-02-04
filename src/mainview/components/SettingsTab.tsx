@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Music, Info, Settings as SettingsIcon, Shield, Sparkles, HardDrive, Bell, Zap } from 'lucide-react';
+import { PageHeader, SettingItem } from './shared';
 
 export default function SettingsTab() {
   const [autoBackup, setAutoBackup] = useState(true);
@@ -9,28 +10,12 @@ export default function SettingsTab() {
   const [backupOnExit, setBackupOnExit] = useState(false);
   const [checkUpdatesStartup, setCheckUpdatesStartup] = useState(true);
 
-  const ToggleSwitch = ({ enabled, onChange }: { enabled: boolean; onChange: () => void }) => (
-    <button
-      onClick={onChange}
-      className={`relative w-14 h-7 rounded-full transition-all ${
-        enabled ? 'bg-spotify-green shadow-lg shadow-spotify-green/30' : 'bg-[#282828]'
-      }`}
-    >
-      <div
-        className={`absolute top-0.5 w-6 h-6 bg-white rounded-full transition-all shadow-md ${
-          enabled ? 'right-0.5' : 'left-0.5'
-        }`}
-      />
-    </button>
-  );
-
   return (
     <div className="h-full bg-spotify-black overflow-y-auto">
-      {/* Header */}
-      <div className="bg-gradient-to-br from-[#1a1a1a] via-spotify-black to-spotify-black px-8 pt-8 pb-6">
-        <h1 className="text-5xl font-black text-white mb-3 tracking-tight">Settings</h1>
-        <p className="text-[#b3b3b3] text-base">Customize your ManagerX experience</p>
-      </div>
+      <PageHeader
+        title="Settings"
+        description="Customize your ManagerX experience"
+      />
 
       <div className="px-8 py-8 space-y-6 max-w-6xl">
         {/* General Settings */}
@@ -46,70 +31,55 @@ export default function SettingsTab() {
           </div>
 
           <div className="space-y-4">
-            <div className="flex items-center justify-between py-4 px-4 bg-[#101010] rounded-xl hover:bg-[#151515] transition-all">
-              <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-lg bg-spotify-green/10 flex items-center justify-center">
-                  <HardDrive size={18} className="text-spotify-green" />
-                </div>
-                <div>
-                  <p className="text-white font-bold text-base">Auto Backup</p>
-                  <p className="text-[#b3b3b3] text-xs mt-0.5">Automatically backup before installing plugins</p>
-                </div>
-              </div>
-              <ToggleSwitch enabled={autoBackup} onChange={() => setAutoBackup(!autoBackup)} />
-            </div>
+            <SettingItem
+              icon={<HardDrive size={18} />}
+              iconBg="bg-spotify-green/10"
+              iconColor="text-spotify-green"
+              title="Auto Backup"
+              description="Automatically backup before installing plugins"
+              enabled={autoBackup}
+              onToggle={() => setAutoBackup(!autoBackup)}
+            />
 
-            <div className="flex items-center justify-between py-4 px-4 bg-[#101010] rounded-xl hover:bg-[#151515] transition-all">
-              <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center">
-                  <Sparkles size={18} className="text-purple-400" />
-                </div>
-                <div>
-                  <p className="text-white font-bold text-base">Auto Update</p>
-                  <p className="text-[#b3b3b3] text-xs mt-0.5">Automatically update plugins when available</p>
-                </div>
-              </div>
-              <ToggleSwitch enabled={autoUpdate} onChange={() => setAutoUpdate(!autoUpdate)} />
-            </div>
+            <SettingItem
+              icon={<Sparkles size={18} />}
+              iconBg="bg-purple-500/10"
+              iconColor="text-purple-400"
+              title="Auto Update"
+              description="Automatically update plugins when available"
+              enabled={autoUpdate}
+              onToggle={() => setAutoUpdate(!autoUpdate)}
+            />
 
-            <div className="flex items-center justify-between py-4 px-4 bg-[#101010] rounded-xl hover:bg-[#151515] transition-all">
-              <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-lg bg-yellow-500/10 flex items-center justify-center">
-                  <Bell size={18} className="text-yellow-400" />
-                </div>
-                <div>
-                  <p className="text-white font-bold text-base">Notifications</p>
-                  <p className="text-[#b3b3b3] text-xs mt-0.5">Show notifications for updates and changes</p>
-                </div>
-              </div>
-              <ToggleSwitch enabled={notifications} onChange={() => setNotifications(!notifications)} />
-            </div>
+            <SettingItem
+              icon={<Bell size={18} />}
+              iconBg="bg-yellow-500/10"
+              iconColor="text-yellow-400"
+              title="Notifications"
+              description="Show notifications for updates and changes"
+              enabled={notifications}
+              onToggle={() => setNotifications(!notifications)}
+            />
 
-            <div className="flex items-center justify-between py-4 px-4 bg-[#101010] rounded-xl hover:bg-[#151515] transition-all">
-              <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-lg bg-orange-500/10 flex items-center justify-center">
-                  <Zap size={18} className="text-orange-400" />
-                </div>
-                <div>
-                  <p className="text-white font-bold text-base">Check Updates on Startup</p>
-                  <p className="text-[#b3b3b3] text-xs mt-0.5">Automatically check for updates when launching</p>
-                </div>
-              </div>
-              <ToggleSwitch enabled={checkUpdatesStartup} onChange={() => setCheckUpdatesStartup(!checkUpdatesStartup)} />
-            </div>
+            <SettingItem
+              icon={<Zap size={18} />}
+              iconBg="bg-orange-500/10"
+              iconColor="text-orange-400"
+              title="Check Updates on Startup"
+              description="Automatically check for updates when launching"
+              enabled={checkUpdatesStartup}
+              onToggle={() => setCheckUpdatesStartup(!checkUpdatesStartup)}
+            />
 
-            <div className="flex items-center justify-between py-4 px-4 bg-[#101010] rounded-xl hover:bg-[#151515] transition-all">
-              <div className="flex items-center gap-4">
-                <div className="w-10 h-10 rounded-lg bg-cyan-500/10 flex items-center justify-center">
-                  <HardDrive size={18} className="text-cyan-400" />
-                </div>
-                <div>
-                  <p className="text-white font-bold text-base">Backup on Exit</p>
-                  <p className="text-[#b3b3b3] text-xs mt-0.5">Create automatic backup when closing ManagerX</p>
-                </div>
-              </div>
-              <ToggleSwitch enabled={backupOnExit} onChange={() => setBackupOnExit(!backupOnExit)} />
-            </div>
+            <SettingItem
+              icon={<HardDrive size={18} />}
+              iconBg="bg-cyan-500/10"
+              iconColor="text-cyan-400"
+              title="Backup on Exit"
+              description="Create automatic backup when closing ManagerX"
+              enabled={backupOnExit}
+              onToggle={() => setBackupOnExit(!backupOnExit)}
+            />
           </div>
         </div>
 
@@ -136,7 +106,18 @@ export default function SettingsTab() {
                   <p className="text-[#b3b3b3] text-xs mt-0.5">Enable developer tools and experimental features</p>
                 </div>
               </div>
-              <ToggleSwitch enabled={devMode} onChange={() => setDevMode(!devMode)} />
+              <button
+                onClick={() => setDevMode(!devMode)}
+                className={`relative w-14 h-7 rounded-full transition-all ${
+                  devMode ? 'bg-spotify-green shadow-lg shadow-spotify-green/30' : 'bg-[#282828]'
+                }`}
+              >
+                <div
+                  className={`absolute top-0.5 w-6 h-6 bg-white rounded-full transition-all shadow-md ${
+                    devMode ? 'right-0.5' : 'left-0.5'
+                  }`}
+                />
+              </button>
             </div>
 
             <div className="bg-[#101010] rounded-xl p-4 border border-[#282828]">

@@ -35,9 +35,9 @@ const BackupTab: React.FC = () => {
               </div>
             </div>
             <button className="px-5 py-2.5 bg-red-500/10 hover:bg-red-500/20 border border-red-500/30 text-red-400 rounded-lg font-bold transition-all">
-             Button variant="danger">
               Restore Original
-            </B>
+            </button>
+          </div>
         </div>
 
         {/* Backup List */}
@@ -65,6 +65,7 @@ const BackupTab: React.FC = () => {
                     Restore
                   </Button>
                   <Button variant="danger" size="sm" icon={<FiTrash2 size={16} />}>
+                    Delete
                   </Button>
                 </div>
               </div>
