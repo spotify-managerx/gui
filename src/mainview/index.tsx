@@ -2,6 +2,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { HashRouter, Routes, Route, Navigate } from 'react-router-dom';
 import './index.css';
+import TitleBar from './components/TitleBar';
 import Sidebar from './components/Sidebar';
 import HomeTab from './components/HomeTab';
 import PluginsTab from './components/PluginsTab';
@@ -14,22 +15,27 @@ import SettingsTab from './components/SettingsTab';
 const App = () => {
   return (
     <HashRouter>
-      <div className="flex h-screen bg-[#191414] overflow-hidden select-none font-sans">
-        {/* Sidebar */}
-        <Sidebar />
+      <div className="flex flex-col h-screen bg-[#191414] overflow-hidden select-none font-sans">
+        {/* Custom Title Bar */}
+        <TitleBar />
+        
+        <div className="flex flex-1 overflow-hidden">
+          {/* Sidebar */}
+          <Sidebar />
 
-        {/* Main content */}
-        <div className="flex-1 flex flex-col overflow-hidden">
-          <Routes>
-            <Route path="/home" element={<HomeTab />} />
-            <Route path="/plugins" element={<PluginsTab />} />
-            <Route path="/apps" element={<AppsTab />} />
-            <Route path="/library" element={<LibraryTab />} />
-            <Route path="/updates" element={<UpdatesTab />} />
-            <Route path="/backup" element={<BackupTab />} />
-            <Route path="/settings" element={<SettingsTab />} />
-            <Route path="/" element={<Navigate to="/home" replace />} />
-          </Routes>
+          {/* Main content */}
+          <div className="flex-1 flex flex-col overflow-hidden">
+            <Routes>
+              <Route path="/home" element={<HomeTab />} />
+              <Route path="/plugins" element={<PluginsTab />} />
+              <Route path="/apps" element={<AppsTab />} />
+              <Route path="/library" element={<LibraryTab />} />
+              <Route path="/updates" element={<UpdatesTab />} />
+              <Route path="/backup" element={<BackupTab />} />
+              <Route path="/settings" element={<SettingsTab />} />
+              <Route path="/" element={<Navigate to="/home" replace />} />
+            </Routes>
+          </div>
         </div>
       </div>
     </HashRouter>
