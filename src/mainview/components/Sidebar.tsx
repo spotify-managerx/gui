@@ -1,19 +1,20 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { FiHome, FiPackage, FiGrid, FiBookOpen, FiDownload, FiSave, FiSettings, FiRefreshCw } from 'react-icons/fi';
+import { ROUTES } from '../../constants';
 
 const Sidebar: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
   const navItems = [
-    { id: 'home', icon: FiHome, label: 'Home', path: '/home' },
-    { id: 'plugins', icon: FiPackage, label: 'Browse Plugins', path: '/plugins' },
-    { id: 'apps', icon: FiGrid, label: 'Apps', path: '/apps' },
-    { id: 'library', icon: FiBookOpen, label: 'My Library', path: '/library' },
-    { id: 'updates', icon: FiDownload, label: 'Updates', path: '/updates' },
-    { id: 'backup', icon: FiSave, label: 'Backup', path: '/backup' },
-    { id: 'settings', icon: FiSettings, label: 'Settings', path: '/settings' },
+    { id: 'home', icon: FiHome, label: 'Home', path: ROUTES.home },
+    { id: 'plugins', icon: FiPackage, label: 'Browse Plugins', path: ROUTES.plugins },
+    { id: 'apps', icon: FiGrid, label: 'Apps', path: ROUTES.apps },
+    { id: 'library', icon: FiBookOpen, label: 'My Library', path: ROUTES.library },
+    { id: 'updates', icon: FiDownload, label: 'Updates', path: ROUTES.updates },
+    { id: 'backup', icon: FiSave, label: 'Backup', path: ROUTES.backup },
+    { id: 'settings', icon: FiSettings, label: 'Settings', path: ROUTES.settings },
   ];
 
   return (

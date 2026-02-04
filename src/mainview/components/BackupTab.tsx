@@ -1,31 +1,10 @@
 import React from 'react';
 import { FiSave, FiRotateCcw, FiClock, FiTrash2 } from 'react-icons/fi';
 import Button from './shared/Button';
+import { mockBackups } from '../../data/mockData';
 
 const BackupTab: React.FC = () => {
-  const backups = [
-    {
-      id: 1,
-      name: 'Pre-OLED Theme',
-      date: '2026-02-02',
-      time: '14:32',
-      size: '45 MB',
-    },
-    {
-      id: 2,
-      name: 'Vanilla Spotify',
-      date: '2026-02-01',
-      time: '09:15',
-      size: '42 MB',
-    },
-    {
-      id: 3,
-      name: 'Pre-Extension Install',
-      date: '2026-01-30',
-      time: '18:45',
-      size: '44 MB',
-    },
-  ];
+  const backups = mockBackups;
 
   return (
     <div className="h-full bg-spotify-black overflow-y-auto">

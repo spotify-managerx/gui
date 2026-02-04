@@ -1,8 +1,8 @@
 export default {
     app: {
-        name: "hello-world",
-        identifier: "helloworld.electrobun.dev",
-        version: "0.0.1",
+        name: "spotify-managerx",
+        identifier: "spotify-managerx.dev",
+        version: "0.0.1-alpha",
     },
     build: {
         views: {

@@ -1,38 +1,10 @@
 import React, { useState } from 'react';
 import { FiSearch, FiDownload, FiCheck, FiDroplet } from 'react-icons/fi';
+import { mockThemes } from '../../data/mockData';
 
 const ThemesTab: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
-
-  const themes = [
-    {
-      id: 1,
-      name: 'OLED Black',
-      author: 'Modify',
-      description: 'Pure black theme optimized for OLED displays',
-      downloads: '12.5k',
-      image: null,
-      installed: true,
-    },
-    {
-      id: 2,
-      name: 'Nord Theme',
-      author: 'Arctic',
-      description: 'Arctic, north-bluish color palette',
-      downloads: '8.2k',
-      image: null,
-      installed: false,
-    },
-    {
-      id: 3,
-      name: 'Dracula',
-      author: 'Community',
-      description: 'Dark theme with vibrant colors',
-      downloads: '15.1k',
-      image: null,
-      installed: false,
-    },
-  ];
+  const themes = mockThemes;
 
   return (
     <div className="h-full bg-spotify-black overflow-hidden">
