@@ -1,19 +1,20 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Home, Package, Grid3x3, Library, Download, Save, Settings, RefreshCw } from 'lucide-react';
+import { FiHome, FiPackage, FiGrid, FiBookOpen, FiDownload, FiSave, FiSettings, FiRefreshCw } from 'react-icons/fi';
+import { ROUTES } from '../../constants';
 
 const Sidebar: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
 
   const navItems = [
-    { id: 'home', icon: Home, label: 'Home', path: '/home' },
-    { id: 'plugins', icon: Package, label: 'Browse Plugins', path: '/plugins' },
-    { id: 'apps', icon: Grid3x3, label: 'Apps', path: '/apps' },
-    { id: 'library', icon: Library, label: 'My Library', path: '/library' },
-    { id: 'updates', icon: Download, label: 'Updates', path: '/updates' },
-    { id: 'backup', icon: Save, label: 'Backup', path: '/backup' },
-    { id: 'settings', icon: Settings, label: 'Settings', path: '/settings' },
+    { id: 'home', icon: FiHome, label: 'Home', path: ROUTES.home },
+    { id: 'plugins', icon: FiPackage, label: 'Browse Plugins', path: ROUTES.plugins },
+    { id: 'apps', icon: FiGrid, label: 'Apps', path: ROUTES.apps },
+    { id: 'library', icon: FiBookOpen, label: 'My Library', path: ROUTES.library },
+    { id: 'updates', icon: FiDownload, label: 'Updates', path: ROUTES.updates },
+    { id: 'backup', icon: FiSave, label: 'Backup', path: ROUTES.backup },
+    { id: 'settings', icon: FiSettings, label: 'Settings', path: ROUTES.settings },
   ];
 
   return (
@@ -44,7 +45,7 @@ const Sidebar: React.FC = () => {
       {/* Bottom section */}
       <div className="p-4 border-t border-[#282828]">
         <button className="w-full flex items-center justify-center gap-2 py-2.5 text-spotify-green hover:text-white text-sm font-semibold transition-colors">
-          <RefreshCw size={18} />
+          <FiRefreshCw size={18} />
           Refresh
         </button>
       </div>

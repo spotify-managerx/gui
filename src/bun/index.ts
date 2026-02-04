@@ -1,23 +1,31 @@
-import { BrowserWindow } from "electrobun/bun";
-// @ts-ignore - no types available
-// import DiscordRPC from "discord-rpc";
+import { BrowserWindow, createRPC } from "electrobun/bun";
+import DiscordRPC from "discord-rpc";
 
-// Discord RPC Setup - DISABLED (causes timeout if Discord not running)
-// const DISCORD_CLIENT_ID = "1234567890123456789";
-// const rpc = new DiscordRPC.Client({ transport: "ipc" });
-// rpc.on("ready", () => {
-//   console.log("Discord RPC connected");
-//   rpc.setActivity({
-//     details: "Customizing Spotify",
-//     state: "In Main Menu",
-//     startTimestamp: Date.now(),
-//     largeImageKey: "managerx_logo",
-//     largeImageText: "ManagerX",
-//     buttons: [{ label: "View on GitHub", url: "https://github.com/spotify-managerx/gui" }],
-//     instance: false,
-//   });
-// });
-// rpc.login({ clientId: DISCORD_CLIENT_ID }).catch(console.error);
+// Discord RPC Setup
+const DISCORD_CLIENT_ID = "1234567890123456789"; // TODO: Replace with actual client ID from Discord Developer Portal
+const rpc = new DiscordRPC.Client({ transport: "ipc" });
+
+rpc.on("ready", () => {
+  console.log("Discord RPC connected");
+  
+  // Set initial activity
+  rpc.setActivity({
+    details: "Customizing Spotify",
+    state: "In Main Menu",
+    startTimestamp: Date.now(),
+    largeImageKey: "managerx_logo", // TODO: Upload to Discord
+    largeImageText: "ManagerX",
+    buttons: [
+      {
+        label: "View on GitHub",
+        url: "https://github.com/spotify-managerx/gui"
+      }
+    ],
+    instance: false,
+  });
+});
+
+rpc.login({ clientId: DISCORD_CLIENT_ID }).catch(console.error);
 
 // Create the main application window
 const mainWindow = new BrowserWindow({
@@ -29,6 +37,33 @@ const mainWindow = new BrowserWindow({
     x: 200,
     y: 200,
   },
-  // Note: styleMask and titleBarStyle are macOS-only
-  // Windows doesn't support custom borderless windows yet in Electrobun
+  styleMask: {
+    Borderless: true,
+    Titled: false,
+    Closable: true,
+    Miniaturizable: true,
+    Resizable: false,
+    UnifiedTitleAndToolbar: false,
+    FullScreen: false,
+    FullSizeContentView: true,
+    UtilityWindow: false,
+    DocModalWindow: false,
+    NonactivatingPanel: false,
+    HUDWindow: false,
+  },
+  titleBarStyle: "hiddenInset",
+  rpc: createRPC({
+    handlers: {
+      closeWindow: () => {
+        mainWindow.close();
+      },
+      // Minimize and maximize not yet supported by Electrobun API
+      minimizeWindow: () => {
+        console.log("Minimize not yet implemented in Electrobun");
+      },
+      maximizeWindow: () => {
+        console.log("Maximize not yet implemented in Electrobun");
+      },
+    },
+  }),
 });

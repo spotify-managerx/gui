@@ -1,14 +1,10 @@
 import React from 'react';
-import { Palette, Package, Check, Trash2 } from 'lucide-react';
+import { FiDroplet, FiPackage, FiCheck, FiTrash2 } from 'react-icons/fi';
+import { mockThemes, mockExtensions } from '../../data/mockData';
 
 const LibraryTab: React.FC = () => {
-  const installedThemes = [
-    { id: 1, name: 'OLED Black', author: 'Modify', type: 'theme' as const },
-  ];
-
-  const installedExtensions = [
-    { id: 1, name: 'Lyrics Plus', author: 'Community', type: 'extension' as const },
-  ];
+  const installedThemes = mockThemes.filter(t => t.installed);
+  const installedExtensions = mockExtensions.filter(e => e.installed);
 
   const allInstalled = [...installedThemes, ...installedExtensions];
 
@@ -22,7 +18,7 @@ const LibraryTab: React.FC = () => {
             <p className="text-[#b3b3b3]">Manage your installed plugins</p>
           </div>
           <div className="flex items-center gap-2 px-4 py-2.5 bg-spotify-green/20 rounded-xl border border-spotify-green/30">
-            <Check size={18} className="text-spotify-green" />
+            <FiCheck size={18} className="text-spotify-green" />
             <div className="flex flex-col">
               <span className="text-spotify-green font-black text-base leading-none">{allInstalled.length}</span>
               <span className="text-spotify-green/70 text-[10px] font-medium">Installed</span>
@@ -43,7 +39,7 @@ const LibraryTab: React.FC = () => {
               >
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-[#282828] to-[#1e1e1e] rounded-lg flex items-center justify-center">
-                    <Palette size={24} className="text-spotify-green" />
+                    <FiDroplet size={24} className="text-spotify-green" />
                   </div>
                   <div>
                     <h3 className="text-white font-bold">{theme.name}</h3>
@@ -51,7 +47,7 @@ const LibraryTab: React.FC = () => {
                   </div>
                 </div>
                 <button className="px-4 py-2 bg-red-500/10 hover:bg-red-500/20 border border-red-500/30 text-red-400 rounded-lg text-sm font-bold transition-all">
-                  <Trash2 size={16} className="inline mr-2" />
+                  <FiTrash2 size={16} className="inline mr-2" />
                   Uninstall
                 </button>
               </div>
@@ -70,7 +66,7 @@ const LibraryTab: React.FC = () => {
               >
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-[#282828] to-[#1e1e1e] rounded-lg flex items-center justify-center">
-                    <Package size={24} className="text-blue-400" />
+                    <FiPackage size={24} className="text-blue-400" />
                   </div>
                   <div>
                     <h3 className="text-white font-bold">{ext.name}</h3>
@@ -78,7 +74,7 @@ const LibraryTab: React.FC = () => {
                   </div>
                 </div>
                 <button className="px-4 py-2 bg-red-500/10 hover:bg-red-500/20 border border-red-500/30 text-red-400 rounded-lg text-sm font-bold transition-all">
-                  <Trash2 size={16} className="inline mr-2" />
+                  <FiTrash2 size={16} className="inline mr-2" />
                   Uninstall
                 </button>
               </div>

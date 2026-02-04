@@ -1,30 +1,10 @@
 import React from 'react';
-import { Save, RotateCcw, Clock, Trash2 } from 'lucide-react';
+import { FiSave, FiRotateCcw, FiClock, FiTrash2 } from 'react-icons/fi';
+import Button from './shared/Button';
+import { mockBackups } from '../../data/mockData';
 
 const BackupTab: React.FC = () => {
-  const backups = [
-    {
-      id: 1,
-      name: 'Pre-OLED Theme',
-      date: '2026-02-02',
-      time: '14:32',
-      size: '45 MB',
-    },
-    {
-      id: 2,
-      name: 'Vanilla Spotify',
-      date: '2026-02-01',
-      time: '09:15',
-      size: '42 MB',
-    },
-    {
-      id: 3,
-      name: 'Pre-Extension Install',
-      date: '2026-01-30',
-      time: '18:45',
-      size: '44 MB',
-    },
-  ];
+  const backups = mockBackups;
 
   return (
     <div className="h-full bg-spotify-black overflow-y-auto">
@@ -35,10 +15,9 @@ const BackupTab: React.FC = () => {
             <h1 className="text-4xl font-black text-white mb-2">Backups</h1>
             <p className="text-[#b3b3b3]">Manage your Spotify backups</p>
           </div>
-          <button className="flex items-center gap-2 px-5 py-2.5 bg-spotify-green text-black rounded-lg font-bold hover:bg-[#1fdf64] transition-all shadow-lg shadow-spotify-green/20">
-            <Save size={18} />
+          <Button variant="primary" icon={<FiSave size={18} />}>
             Create New Backup
-          </button>
+          </Button>
         </div>
       </div>
 
@@ -48,7 +27,7 @@ const BackupTab: React.FC = () => {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <div className="w-14 h-14 rounded-full bg-red-500/20 flex items-center justify-center">
-                <RotateCcw size={26} className="text-red-400" />
+                <FiRotateCcw size={26} className="text-red-400" />
               </div>
               <div>
                 <h2 className="text-white font-bold text-xl mb-1">Restore to Vanilla</h2>
@@ -56,9 +35,9 @@ const BackupTab: React.FC = () => {
               </div>
             </div>
             <button className="px-5 py-2.5 bg-red-500/10 hover:bg-red-500/20 border border-red-500/30 text-red-400 rounded-lg font-bold transition-all">
+             Button variant="danger">
               Restore Original
-            </button>
-          </div>
+            </B>
         </div>
 
         {/* Backup List */}
@@ -72,7 +51,7 @@ const BackupTab: React.FC = () => {
               >
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-[#282828] to-[#1e1e1e] rounded-lg flex items-center justify-center">
-                    <Clock size={24} className="text-spotify-green" />
+                    <FiClock size={24} className="text-spotify-green" />
                   </div>
                   <div>
                     <h3 className="text-white font-bold text-sm group-hover:text-spotify-green transition-colors">{backup.name}</h3>
@@ -82,12 +61,11 @@ const BackupTab: React.FC = () => {
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
-                  <button className="px-4 py-2 bg-spotify-green text-black rounded-lg text-sm font-bold hover:bg-[#1fdf64] transition-all">
+                  <Button variant="primary" size="sm">
                     Restore
-                  </button>
-                  <button className="px-4 py-2 bg-red-500/10 hover:bg-red-500/20 border border-red-500/30 text-red-400 rounded-lg text-sm font-bold transition-all">
-                    <Trash2 size={16} />
-                  </button>
+                  </Button>
+                  <Button variant="danger" size="sm" icon={<FiTrash2 size={16} />}>
+                  </Button>
                 </div>
               </div>
             ))}

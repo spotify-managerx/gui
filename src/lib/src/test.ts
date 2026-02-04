@@ -1,4 +1,8 @@
 import SpotifyPatcher from "./SpotifyPatcher";
 
-const patcher = new SpotifyPatcher();
-console.log(patcher.config_dir_path);
+(async () => {
+    const patcher = new SpotifyPatcher();
+    console.log(patcher.config_dir_path);
+    await patcher.extractSpotifyApps();
+    await patcher.patchSpotifyApps();
+})();
