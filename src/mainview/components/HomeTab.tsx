@@ -1,5 +1,6 @@
 import React from 'react';
 import { FiTrendingUp, FiZap, FiUsers, FiDownload } from 'react-icons/fi';
+import StatCard from './shared/StatCard';
 
 const HomeTab: React.FC = () => {
   return (
@@ -13,45 +14,34 @@ const HomeTab: React.FC = () => {
       <div className="px-8 py-6 space-y-6">
         {/* Stats Grid */}
         <div className="grid grid-cols-4 gap-4">
-          <div className="bg-gradient-to-br from-[#1e1e1e] to-[#181818] p-6 rounded-xl border border-[#282828]">
-            <div className="flex items-center justify-between mb-3">
-              <div className="w-12 h-12 bg-spotify-green/20 rounded-xl flex items-center justify-center">
-                <Download size={24} className="text-spotify-green" />
-              </div>
-            </div>
-            <p className="text-white font-black text-3xl mb-1">2</p>
-            <p className="text-[#b3b3b3] text-sm">Installed Plugins</p>
-          </div>
-
-          <div className="bg-gradient-to-br from-[#1e1e1e] to-[#181818] p-6 rounded-xl border border-[#282828]">
-            <div className="flex items-center justify-between mb-3">
-              <div className="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center">
-                <TrendingUp size={24} className="text-blue-400" />
-              </div>
-            </div>
-            <p className="text-white font-black text-3xl mb-1">5</p>
-            <p className="text-[#b3b3b3] text-sm">Available Plugins</p>
-          </div>
-
-          <div className="bg-gradient-to-br from-[#1e1e1e] to-[#181818] p-6 rounded-xl border border-[#282828]">
-            <div className="flex items-center justify-between mb-3">
-              <div className="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center">
-                <FiZap size={24} className="text-purple-400" />
-              </div>
-            </div>
-            <p className="text-white font-black text-3xl mb-1">1.2.25</p>
-            <p className="text-[#b3b3b3] text-sm">Spotify Version</p>
-          </div>
-
-          <div className="bg-gradient-to-br from-[#1e1e1e] to-[#181818] p-6 rounded-xl border border-[#282828]">
-            <div className="flex items-center justify-between mb-3">
-              <div className="w-12 h-12 bg-orange-500/20 rounded-xl flex items-center justify-center">
-                <FiUsers size={24} className="text-orange-400" />
-              </div>
-            </div>
-            <p className="text-white font-black text-3xl mb-1">Active</p>
-            <p className="text-[#b3b3b3] text-sm">Spotify Status</p>
-          </div>
+          <StatCard
+            icon={<FiDownload size={24} />}
+            iconBgColor="bg-spotify-green/20"
+            iconColor="text-spotify-green"
+            value="2"
+            label="Installed Plugins"
+          />
+          <StatCard
+            icon={<FiTrendingUp size={24} />}
+            iconBgColor="bg-blue-500/20"
+            iconColor="text-blue-400"
+            value="5"
+            label="Available Plugins"
+          />
+          <StatCard
+            icon={<FiZap size={24} />}
+            iconBgColor="bg-purple-500/20"
+            iconColor="text-purple-400"
+            value="1.2.25"
+            label="Spotify Version"
+          />
+          <StatCard
+            icon={<FiUsers size={24} />}
+            iconBgColor="bg-orange-500/20"
+            iconColor="text-orange-400"
+            value="Active"
+            label="Spotify Status"
+          />
         </div>
 
         {/* Quick Actions */}
@@ -60,7 +50,7 @@ const HomeTab: React.FC = () => {
           <div className="grid grid-cols-2 gap-4">
             <button className="bg-gradient-to-br from-[#1e1e1e] to-[#181818] p-6 rounded-xl border border-[#282828] hover:border-spotify-green/40 transition-all text-left group">
               <div className="w-12 h-12 bg-spotify-green/20 rounded-xl flex items-center justify-center mb-4 group-hover:bg-spotify-green/30 transition-all">
-                <Download size={24} className="text-spotify-green" />
+                <FiDownload size={24} className="text-spotify-green" />
               </div>
               <h3 className="text-white font-bold text-lg mb-1">Browse Plugins</h3>
               <p className="text-[#b3b3b3] text-sm">Discover themes and extensions</p>

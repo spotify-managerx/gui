@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FiMusic, FiInfo, FiSettings } from 'react-icons/fi';
+import ToggleSwitch from './shared/ToggleSwitch';
 
 const SettingsTab: React.FC = () => {
   const [autoBackup, setAutoBackup] = useState(true);
@@ -33,18 +34,7 @@ const SettingsTab: React.FC = () => {
                 <p className="text-white font-semibold text-sm">Auto Backup</p>
                 <p className="text-[#b3b3b3] text-xs mt-1">Automatically backup before installing plugins</p>
               </div>
-              <button
-                onClick={() => setAutoBackup(!autoBackup)}
-                className={`relative w-12 h-6 rounded-full transition-all ${
-                  autoBackup ? 'bg-spotify-green' : 'bg-[#282828]'
-                }`}
-              >
-                <div
-                  className={`absolute top-0.5 w-5 h-5 bg-black rounded-full transition-all ${
-                    autoBackup ? 'right-0.5' : 'left-0.5'
-                  }`}
-                />
-              </button>
+              <ToggleSwitch enabled={autoBackup} onToggle={() => setAutoBackup(!autoBackup)} />
             </div>
 
             <div className="h-px bg-[#282828]"></div>
@@ -55,18 +45,7 @@ const SettingsTab: React.FC = () => {
                 <p className="text-white font-semibold text-sm">Auto Update</p>
                 <p className="text-[#b3b3b3] text-xs mt-1">Automatically update plugins when available</p>
               </div>
-              <button
-                onClick={() => setAutoUpdate(!autoUpdate)}
-                className={`relative w-12 h-6 rounded-full transition-all ${
-                  autoUpdate ? 'bg-spotify-green' : 'bg-[#282828]'
-                }`}
-              >
-                <div
-                  className={`absolute top-0.5 w-5 h-5 bg-black rounded-full transition-all ${
-                    autoUpdate ? 'right-0.5' : 'left-0.5'
-                  }`}
-                />
-              </button>
+              <ToggleSwitch enabled={autoUpdate} onToggle={() => setAutoUpdate(!autoUpdate)} />
             </div>
           </div>
         </div>
@@ -75,7 +54,7 @@ const SettingsTab: React.FC = () => {
         <div className="bg-[#181818] rounded-2xl p-6 border border-spotify-green/30">
           <div className="flex items-start gap-4 mb-6">
             <div className="w-14 h-14 rounded-full bg-spotify-green flex items-center justify-center flex-shrink-0 shadow-lg shadow-spotify-green/20">
-              <Music size={26} className="text-black" strokeWidth={2.5} />
+              <FiMusic size={26} className="text-black" strokeWidth={2.5} />
             </div>
             <div>
               <h2 className="text-white font-bold text-xl mb-1">Spotify Installation</h2>
@@ -103,7 +82,7 @@ const SettingsTab: React.FC = () => {
         <div className="bg-[#181818] rounded-2xl p-6 border border-[#282828]">
           <div className="flex items-start gap-4 mb-6">
             <div className="w-14 h-14 rounded-full bg-[#282828] flex items-center justify-center flex-shrink-0">
-              <Info size={26} className="text-white" />
+              <FiInfo size={26} className="text-white" />
             </div>
             <div>
               <h2 className="text-white font-bold text-xl mb-1">About ManagerX</h2>
