@@ -1,32 +1,34 @@
 import { BrowserWindow, createRPC } from "electrobun/bun";
-// @ts-ignore - discord-rpc has no types
-import DiscordRPC from "discord-rpc";
 
-// Discord RPC Setup
-const DISCORD_CLIENT_ID = "1234567890123456789"; // TODO: Replace with actual client ID from Discord Developer Portal
-const rpc = new DiscordRPC.Client({ transport: "ipc" });
+const DISCORD_CLIENT_ID = "1468686976222761168";
 
-rpc.on("ready", () => {
-  console.log("Discord RPC connected");
-  
-  // Set initial activity
-  rpc.setActivity({
-    details: "Customizing Spotify",
-    state: "In Main Menu",
-    startTimestamp: Date.now(),
-    largeImageKey: "managerx_logo", // TODO: Upload to Discord
-    largeImageText: "ManagerX",
-    buttons: [
-      {
-        label: "View on GitHub",
-        url: "https://github.com/spotify-managerx/gui"
-      }
-    ],
-    instance: false,
-  });
-});
-
-rpc.login({ clientId: DISCORD_CLIENT_ID }).catch(console.error);
+// Initialize Discord RPC using simple direct IPC implementation
+(async () => {
+  try {
+    console.log("[Discord RPC] Initializing...");
+    
+    const SimpleDiscordRPC = (await import("../services/simpleDiscordRPC")).default;
+    const rpc = new SimpleDiscordRPC(DISCORD_CLIENT_ID);
+    
+    console.log("[Discord RPC] Connecting to Discord...");
+    await rpc.connect();
+    
+    // Set activity once connected
+    await rpc.setActivity({
+      details: "Customizing Spotify",
+      state: "In Main Menu",
+      timestamps: {
+        start: Date.now(),
+      },
+      instance: false,
+    });
+    
+    console.log("[Discord RPC] ✓ Successfully initialized!");
+    
+  } catch (error: any) {
+    console.log("[Discord RPC] Failed to initialize:", error?.message || error);
+  }
+})();
 
 // Create the main application window
 const mainWindow = new BrowserWindow({
