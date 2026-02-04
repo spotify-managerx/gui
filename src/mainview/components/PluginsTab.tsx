@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Search, Check, Palette, Package, Download, Code, Grid3x3, Star, TrendingUp } from 'lucide-react';
 
-const PluginsTab: React.FC = () => {
+export default function PluginsTab() {
   const [activeTab, setActiveTab] = useState<'themes' | 'extensions' | 'snippets'>('themes');
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -387,6 +387,4 @@ const PluginsTab: React.FC = () => {
       </div>
     </div>
   );
-};
-
-export default PluginsTab;
+}

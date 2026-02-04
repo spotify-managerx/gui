@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Grid3x3, ExternalLink, Settings, Trash2, Star, Download, Search, TrendingUp } from 'lucide-react';
 
-const AppsTab: React.FC = () => {
+export default function AppsTab() {
   const [searchQuery, setSearchQuery] = useState('');
 
   const installedApps = [
@@ -216,6 +216,4 @@ const AppsTab: React.FC = () => {
       </div>
     </div>
   );
-};
-
-export default AppsTab;
+}

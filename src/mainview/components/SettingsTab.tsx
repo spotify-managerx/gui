@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Music, Info, Settings as SettingsIcon, Shield, Sparkles, HardDrive, Bell, Zap } from 'lucide-react';
 
-const SettingsTab: React.FC = () => {
+export default function SettingsTab() {
   const [autoBackup, setAutoBackup] = useState(true);
   const [autoUpdate, setAutoUpdate] = useState(false);
   const [notifications, setNotifications] = useState(true);
@@ -242,6 +242,4 @@ const SettingsTab: React.FC = () => {
       </div>
     </div>
   );
-};
-
-export default SettingsTab;
+}
