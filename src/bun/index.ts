@@ -1,4 +1,5 @@
 import { BrowserWindow, createRPC } from "electrobun/bun";
+// @ts-ignore - discord-rpc has no types
 import DiscordRPC from "discord-rpc";
 
 // Discord RPC Setup
@@ -53,6 +54,7 @@ const mainWindow = new BrowserWindow({
   },
   titleBarStyle: "hiddenInset",
   rpc: createRPC({
+    // @ts-ignore - handlers property type mismatch in Electrobun
     handlers: {
       closeWindow: () => {
         mainWindow.close();

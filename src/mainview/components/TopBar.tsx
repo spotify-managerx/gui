@@ -1,5 +1,5 @@
 import React from 'react';
-import { FiPower } from 'react-icons/fi';
+import { Power } from 'lucide-react';
 import Button from './shared/Button';
 
 const TopBar: React.FC = () => {
@@ -12,7 +12,7 @@ const TopBar: React.FC = () => {
       </div>
 
       {/* Close Button */}
-      <Button variant="danger" size="sm" icon={<FiPower size={16} />}>
+      <Button variant="danger" size="sm" icon={<Power size={16} />}>
         Close Spotify
       </Button>
     </div>
