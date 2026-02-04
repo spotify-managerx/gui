@@ -1,5 +1,5 @@
 import React from 'react';
-import { TrendingUp, Zap, Users, Download } from 'lucide-react';
+import { FiTrendingUp, FiZap, FiUsers, FiDownload } from 'react-icons/fi';
 
 const HomeTab: React.FC = () => {
   return (
@@ -36,7 +36,7 @@ const HomeTab: React.FC = () => {
           <div className="bg-gradient-to-br from-[#1e1e1e] to-[#181818] p-6 rounded-xl border border-[#282828]">
             <div className="flex items-center justify-between mb-3">
               <div className="w-12 h-12 bg-purple-500/20 rounded-xl flex items-center justify-center">
-                <Zap size={24} className="text-purple-400" />
+                <FiZap size={24} className="text-purple-400" />
               </div>
             </div>
             <p className="text-white font-black text-3xl mb-1">1.2.25</p>
@@ -46,7 +46,7 @@ const HomeTab: React.FC = () => {
           <div className="bg-gradient-to-br from-[#1e1e1e] to-[#181818] p-6 rounded-xl border border-[#282828]">
             <div className="flex items-center justify-between mb-3">
               <div className="w-12 h-12 bg-orange-500/20 rounded-xl flex items-center justify-center">
-                <Users size={24} className="text-orange-400" />
+                <FiUsers size={24} className="text-orange-400" />
               </div>
             </div>
             <p className="text-white font-black text-3xl mb-1">Active</p>
@@ -68,7 +68,7 @@ const HomeTab: React.FC = () => {
 
             <button className="bg-gradient-to-br from-[#1e1e1e] to-[#181818] p-6 rounded-xl border border-[#282828] hover:border-blue-500/40 transition-all text-left group">
               <div className="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center mb-4 group-hover:bg-blue-500/30 transition-all">
-                <TrendingUp size={24} className="text-blue-400" />
+                <FiTrendingUp size={24} className="text-blue-400" />
               </div>
               <h3 className="text-white font-bold text-lg mb-1">Check Updates</h3>
               <p className="text-[#b3b3b3] text-sm">Update your installed plugins</p>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Music, Info, Settings as SettingsIcon } from 'lucide-react';
+import { FiMusic, FiInfo, FiSettings } from 'react-icons/fi';
 
 const SettingsTab: React.FC = () => {
   const [autoBackup, setAutoBackup] = useState(true);
@@ -18,7 +18,7 @@ const SettingsTab: React.FC = () => {
         <div className="bg-[#181818] rounded-2xl p-6 border border-[#282828]">
           <div className="flex items-start gap-4 mb-6">
             <div className="w-14 h-14 rounded-full bg-blue-500/20 flex items-center justify-center flex-shrink-0">
-              <SettingsIcon size={26} className="text-blue-400" />
+              <FiSettings size={26} className="text-blue-400" />
             </div>
             <div>
               <h2 className="text-white font-bold text-xl mb-1">Preferences</h2>

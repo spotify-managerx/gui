@@ -1,5 +1,5 @@
 import React from 'react';
-import { Power } from 'lucide-react';
+import { FiPower } from 'react-icons/fi';
 
 const TopBar: React.FC = () => {
   return (
@@ -12,7 +12,7 @@ const TopBar: React.FC = () => {
 
       {/* Close Button */}
       <button className="flex items-center gap-2 px-4 py-2 rounded-lg bg-red-500/10 hover:bg-red-500/20 border border-red-500/20 text-red-400 text-sm font-medium transition-colors">
-        <Power size={16} />
+        <FiPower size={16} />
         Close Spotify
       </button>
     </div>

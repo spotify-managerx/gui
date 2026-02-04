@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, Check, Palette, Package, Download, Code, Grid3x3 } from 'lucide-react';
+import { FiSearch, FiCheck, FiDroplet, FiPackage, FiDownload, FiCode, FiGrid } from 'react-icons/fi';
 
 const PluginsTab: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'themes' | 'extensions' | 'snippets'>('themes');
@@ -104,14 +104,14 @@ const PluginsTab: React.FC = () => {
           {/* Stats */}
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-2 px-4 py-2.5 bg-spotify-green/20 rounded-xl border border-spotify-green/30">
-              <Check size={18} className="text-spotify-green" />
+              <FiCheck size={18} className="text-spotify-green" />
               <div className="flex flex-col">
                 <span className="text-spotify-green font-black text-base leading-none">{installedCount}</span>
                 <span className="text-spotify-green/70 text-[10px] font-medium">Installed</span>
               </div>
             </div>
             <div className="flex items-center gap-2 px-4 py-2.5 bg-[#282828] rounded-xl border border-[#333]">
-              <Download size={18} className="text-white/60" />
+              <FiDownload size={18} className="text-white/60" />
               <div className="flex flex-col">
                 <span className="text-white font-black text-base leading-none">{activeData.length}</span>
                 <span className="text-white/40 text-[10px] font-medium">Available</span>
@@ -120,7 +120,7 @@ const PluginsTab: React.FC = () => {
           </div>
         </div>
 
-        {/* Tabs and Search Row */}
+        {/* Tabs and FiSearch Row */}
         <div className="flex items-center gap-4">
           {/* Tabs */}
           <div className="flex items-center gap-2">
@@ -156,12 +156,12 @@ const PluginsTab: React.FC = () => {
             </button>
           </div>
 
-          {/* Search */}
+          {/* FiSearch */}
           <div className="relative flex-1">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-[#b3b3b3]" size={20} />
+            <FiSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-[#b3b3b3]" size={20} />
             <input
               type="text"
-              placeholder={`Search ${activeTab}...`}
+              placeholder={`FiSearch ${activeTab}...`}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full bg-[#242424] border border-[#333] rounded-lg pl-12 pr-4 py-2.5 text-white text-sm placeholder:text-[#777] focus:bg-[#2a2a2a] focus:border-spotify-green/50 focus:outline-none transition-all"
@@ -182,20 +182,20 @@ const PluginsTab: React.FC = () => {
               {/* Preview */}
               <div className="relative aspect-square bg-gradient-to-br from-[#282828] to-[#1e1e1e] flex items-center justify-center overflow-hidden">
                 {activeTab === 'themes' ? (
-                  <Palette size={48} className="text-white/5 group-hover:text-spotify-green/20 transition-colors" />
+                  <FiDroplet size={48} className="text-white/5 group-hover:text-spotify-green/20 transition-colors" />
                 ) : activeTab === 'snippets' ? (
-                  <Code size={48} className="text-white/5 group-hover:text-purple-400/20 transition-colors" />
+                  <FiCode size={48} className="text-white/5 group-hover:text-purple-400/20 transition-colors" />
                 ) : (
-                  <Package size={48} className="text-white/5 group-hover:text-spotify-green/20 transition-colors" />
+                  <FiPackage size={48} className="text-white/5 group-hover:text-spotify-green/20 transition-colors" />
                 )}
                 {(item.installed || item.enabled) && (
                   <div className={`absolute top-2 right-2 w-7 h-7 rounded-full flex items-center justify-center shadow-lg ${
                     activeTab === 'snippets' ? 'bg-purple-500 shadow-purple-500/40' : 'bg-spotify-green shadow-spotify-green/40'
                   }`}>
-                    <Check size={16} className="text-black" strokeWidth={3} />
+                    <FiCheck size={16} className="text-black" strokeWidth={3} />
                   </div>
                 )}
-                {/* Download count overlay */}
+                {/* FiDownload count overlay */}
                 {item.downloads && (
                   <div className="absolute bottom-2 left-2 px-2 py-1 bg-black/60 backdrop-blur-sm rounded-md">
                     <p className="text-white text-[9px] font-bold">{item.downloads}</p>

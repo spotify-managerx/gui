@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Search, Download, Check, Palette } from 'lucide-react';
+import { FiSearch, FiDownload, FiCheck, FiDroplet } from 'react-icons/fi';
 
 const ThemesTab: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -44,19 +44,19 @@ const ThemesTab: React.FC = () => {
             <p className="text-[#b3b3b3]">Customize your Spotify</p>
           </div>
           <div className="flex items-center gap-2 px-4 py-2 bg-spotify-green/20 rounded-full border border-spotify-green/30">
-            <Check size={18} className="text-spotify-green" />
+            <FiCheck size={18} className="text-spotify-green" />
             <span className="text-spotify-green font-bold text-sm">{themes.filter(t => t.installed).length} Installed</span>
           </div>
         </div>
 
         {/* Search */}
         <div className="relative">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-[#b3b3b3]" size={20} />
+          <FiSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-[#b3b3b3]" size={20} />
           <input
             type="text"
             placeholder="Search themes"
             value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setSearchQuery(e.target.value)}
             className="w-full max-w-md bg-[#242424] border border-[#333] rounded-full pl-12 pr-4 py-3 text-white text-sm placeholder:text-[#777] focus:bg-[#2a2a2a] focus:border-spotify-green/50 focus:outline-none transition-all"
           />
         </div>
@@ -72,10 +72,10 @@ const ThemesTab: React.FC = () => {
             >
               {/* Theme preview */}
               <div className="relative aspect-square bg-[#282828] flex items-center justify-center overflow-hidden">
-                <Palette size={48} className="text-white/5 group-hover:text-white/10 transition-colors" />
+                <FiDroplet size={48} className="text-white/5 group-hover:text-white/10 transition-colors" />
                 {theme.installed && (
                   <div className="absolute top-2 right-2 w-6 h-6 bg-spotify-green rounded-full flex items-center justify-center shadow-lg">
-                    <Check size={14} className="text-black" strokeWidth={3} />
+                    <FiCheck size={14} className="text-black" strokeWidth={3} />
                   </div>
                 )}
               </div>

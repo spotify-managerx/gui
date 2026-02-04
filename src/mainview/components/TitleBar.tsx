@@ -1,5 +1,5 @@
 import React from 'react';
-import { Minus, Square, X } from 'lucide-react';
+import { FiMinus, FiSquare, FiX } from 'react-icons/fi';
 
 declare global {
   interface Window {
@@ -49,19 +49,19 @@ const TitleBar: React.FC = () => {
             onClick={handleMinimize}
             className="w-12 h-8 flex items-center justify-center hover:bg-[#282828] transition-colors no-drag"
           >
-            <Minus size={14} className="text-white" />
+            <FiMinus size={14} className="text-white" />
           </button>
           <button
             onClick={handleMaximize}
             className="w-12 h-8 flex items-center justify-center hover:bg-[#282828] transition-colors no-drag"
           >
-            <Square size={12} className="text-white" />
+            <FiSquare size={12} className="text-white" />
           </button>
           <button
             onClick={handleClose}
             className="w-12 h-8 flex items-center justify-center hover:bg-red-600 transition-colors no-drag"
           >
-            <X size={16} className="text-white" />
+            <FiX size={16} className="text-white" />
           </button>
         </div>
       </div>

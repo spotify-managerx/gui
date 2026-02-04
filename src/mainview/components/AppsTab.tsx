@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid3x3, ExternalLink, Settings, Trash2 } from 'lucide-react';
+import { FiGrid, FiExternalLink, FiSettings, FiTrash2 } from 'react-icons/fi';
 
 const AppsTab: React.FC = () => {
   const installedApps = [
@@ -60,7 +60,7 @@ const AppsTab: React.FC = () => {
               >
                 <div className="flex items-start gap-4 mb-4">
                   <div className="w-16 h-16 bg-gradient-to-br from-spotify-green/20 to-spotify-green/10 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Grid3x3 size={32} className="text-spotify-green" />
+                    <FiGrid size={32} className="text-spotify-green" />
                   </div>
                   <div className="flex-1">
                     <h3 className="text-white font-bold text-lg mb-1 group-hover:text-spotify-green transition-colors">{app.name}</h3>
@@ -70,14 +70,14 @@ const AppsTab: React.FC = () => {
                 </div>
                 <div className="flex items-center gap-2">
                   <button className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-spotify-green text-black rounded-lg font-bold hover:bg-[#1fdf64] transition-all">
-                    <ExternalLink size={16} />
+                    <FiExternalLink size={16} />
                     Open App
                   </button>
                   <button className="px-4 py-2.5 bg-[#282828] hover:bg-[#333] text-white rounded-lg transition-all">
-                    <Settings size={16} />
+                    <FiSettings size={16} />
                   </button>
                   <button className="px-4 py-2.5 bg-red-500/10 hover:bg-red-500/20 border border-red-500/30 text-red-400 rounded-lg transition-all">
-                    <Trash2 size={16} />
+                    <FiTrash2 size={16} />
                   </button>
                 </div>
               </div>
@@ -96,7 +96,7 @@ const AppsTab: React.FC = () => {
               >
                 {/* Preview */}
                 <div className="relative aspect-square bg-gradient-to-br from-[#282828] to-[#1e1e1e] flex items-center justify-center overflow-hidden">
-                  <Grid3x3 size={48} className="text-white/5 group-hover:text-spotify-green/20 transition-colors" />
+                  <FiGrid size={48} className="text-white/5 group-hover:text-spotify-green/20 transition-colors" />
                   {/* Download count overlay */}
                   <div className="absolute bottom-2 left-2 px-2 py-1 bg-black/60 backdrop-blur-sm rounded-md">
                     <p className="text-white text-[9px] font-bold">{app.downloads}</p>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Save, RotateCcw, Clock, Trash2 } from 'lucide-react';
+import { FiSave, FiRotateCcw, FiClock, FiTrash2 } from 'react-icons/fi';
 
 const BackupTab: React.FC = () => {
   const backups = [
@@ -36,7 +36,7 @@ const BackupTab: React.FC = () => {
             <p className="text-[#b3b3b3]">Manage your Spotify backups</p>
           </div>
           <button className="flex items-center gap-2 px-5 py-2.5 bg-spotify-green text-black rounded-lg font-bold hover:bg-[#1fdf64] transition-all shadow-lg shadow-spotify-green/20">
-            <Save size={18} />
+            <FiSave size={18} />
             Create New Backup
           </button>
         </div>
@@ -48,7 +48,7 @@ const BackupTab: React.FC = () => {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-4">
               <div className="w-14 h-14 rounded-full bg-red-500/20 flex items-center justify-center">
-                <RotateCcw size={26} className="text-red-400" />
+                <FiRotateCcw size={26} className="text-red-400" />
               </div>
               <div>
                 <h2 className="text-white font-bold text-xl mb-1">Restore to Vanilla</h2>
@@ -72,7 +72,7 @@ const BackupTab: React.FC = () => {
               >
                 <div className="flex items-center gap-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-[#282828] to-[#1e1e1e] rounded-lg flex items-center justify-center">
-                    <Clock size={24} className="text-spotify-green" />
+                    <FiClock size={24} className="text-spotify-green" />
                   </div>
                   <div>
                     <h3 className="text-white font-bold text-sm group-hover:text-spotify-green transition-colors">{backup.name}</h3>
@@ -86,7 +86,7 @@ const BackupTab: React.FC = () => {
                     Restore
                   </button>
                   <button className="px-4 py-2 bg-red-500/10 hover:bg-red-500/20 border border-red-500/30 text-red-400 rounded-lg text-sm font-bold transition-all">
-                    <Trash2 size={16} />
+                    <FiTrash2 size={16} />
                   </button>
                 </div>
               </div>
